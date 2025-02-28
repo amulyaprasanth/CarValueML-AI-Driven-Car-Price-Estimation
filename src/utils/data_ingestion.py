@@ -55,20 +55,3 @@ class DataIngestion:
         X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=self.test_size, random_state=42)
 
         return X_train, X_test, y_train, y_test
-
-
-if __name__ == "__main__":
-    from src.utils.read_yaml import read_config
-    
-    # read configuration from yaml file
-    ingestion_config = read_config('config/config.yml', 'data_ingestion_config')
-
-    data_ingestion = DataIngestion(**ingestion_config)
-    data_ingestion.download_data()
-    data = data_ingestion.load_data()
-
-    X_train, X_test, y_train, y_test = data_ingestion.split_data(data)
-
-    # Display the shapes
-    print(f"X_train shape: {X_train.shape}, y_train shape: {y_train.shape}")
-    print(f"X_test shape: {X_test.shape}, y_test shape: {y_test.shape}")
