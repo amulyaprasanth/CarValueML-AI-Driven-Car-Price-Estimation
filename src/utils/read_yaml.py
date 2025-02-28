@@ -16,9 +16,9 @@ def read_config(config_file_path, section):
     
     return config.get(section)
 
-# Example usage
-config_file_path = 'src/config/config.yml'
-section = 'data_ingestion_config'
-data_ingestion_config = read_config(config_file_path, section)
+if __name__ == "__main__":
+    config_file_path = 'config/config.yml'
+    section = 'data_ingestion_config'
+    data_ingestion_config = read_config(config_file_path, section)
 
-print(data_ingestion_config)
+    print(data_ingestion_config)

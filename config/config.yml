@@ -1,0 +1,10 @@
+data_ingestion_config:
+  artifacts_dir: artifacts
+  url: https://raw.githubusercontent.com/Ujjwal-wadhwa/Cars24_Scrapper/refs/heads/main/cars_24_combined.csv
+  filepath: artifacts/data.csv
+  test_size: 0.2
+
+
+data_transformation_config:
+  feature_preprocessor : artifacts/feature_preprocessor.pkl
+  targets_preprocessor: artifacts/target_preprocessor.pkl
