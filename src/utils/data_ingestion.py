@@ -33,17 +33,17 @@ class DataIngestion:
         return pd.read_csv(self.filepath)
 
 
-    def split_data(self, data: pd.DataFrame, ) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    def split_data(self, data: pd.DataFrame, ) -> tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
         """This function splits the given Dataframe into featuers and labels and then into trainng and testing sets
         Args:
             data (pd.DataFrame) : The DataFrame containing the data.
             test_size (float | Optional) : The proportion of the dataset to include in the test split. Defaults to 0.2.
         
         Returns:
-        X_train (np.ndarray): Features for the training set
-        X_test (np.ndarray): Features for the testing set
-        y_train (np.ndarray): Labels for the training set
-        y_test (np.ndarray): Labels for the testing set
+        X_train (pd.DataFrame): Features for the training set
+        X_test (pd.DataFrame): Features for the testing set
+        y_train (pd.Series): Labels for the training set
+        y_test (pd.Series): Labels for the testing set
         """
 
         # Drop the unnecessary column
@@ -54,7 +54,7 @@ class DataIngestion:
         # Split the data into training and testing sets
         X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=self.test_size, random_state=42)
 
-        return np.array(X_train), np.array(X_test), np.array(y_train), np.array(y_test)
+        return X_train, X_test, y_train, y_test
 
 
 if __name__ == "__main__":

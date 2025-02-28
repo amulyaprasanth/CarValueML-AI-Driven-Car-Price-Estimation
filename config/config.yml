@@ -6,5 +6,5 @@ data_ingestion_config:
 
 
 data_transformation_config:
-  feature_preprocessor : artifacts/feature_preprocessor.pkl
-  targets_preprocessor: artifacts/target_preprocessor.pkl
+  feature_preprocessor_path : artifacts/feature_preprocessor.pkl
+  target_preprocessor_path: artifacts/target_preprocessor.pkl
